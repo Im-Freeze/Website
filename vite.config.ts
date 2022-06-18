@@ -1,21 +1,8 @@
 import { defineConfig } from "vite";
-import { createHtmlPlugin } from "vite-plugin-html";
+import twig from "vite-plugin-twig";
 
 export default defineConfig({
-    plugins: [
-        createHtmlPlugin({
-            minify: true,
-            inject: {
-                data: {
-                    title: "SharkMC",
-                    description:
-                        "Vzdelávajte, Informujte, Budujte sa! S www.dobrefakty.gq získate všetky potrebné informácie!",
-                    url: "https://www.dobrefakty.gq/",
-                    buttonText: "Klikni pre načítanie stránky",
-                },
-            },
-        }),
-    ],
+    plugins: [twig()],
     build: {
         rollupOptions: {
             input: {

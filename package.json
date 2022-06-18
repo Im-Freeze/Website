@@ -1,6 +1,6 @@
 {
-    "name": "vite-scss",
-    "private": true,
+    "name": "sharkmc-website",
+    "private": false,
     "version": "0.0.0",
     "scripts": {
         "dev": "vite",
@@ -15,6 +15,8 @@
         "autoprefixer": "^10.4.7",
         "postcss": "^8.4.14",
         "sass": "^1.52.2",
-        "vite-plugin-html": "^3.2.0"
+        "vite-plugin-compress": "^2.1.1",
+        "vite-plugin-html": "^3.2.0",
+        "vite-plugin-twig": "^1.1.1"
     }
 }
