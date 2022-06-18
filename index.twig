@@ -1,2 +1,69 @@
 {% extends 'partial/head.twig' %}
-    <body></body>
+{% set title = 'SharkMC - Home' %}
+{% set url = 'soon.soon.soon' %}
+{% set description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, nulla.' %}
+{% block content %}
+<nav>
+    <ul>
+        <li>
+            <a href="#"><img src="" alt="sharkur logo" />Sharkur</a>
+        </li>
+        <li><a href="#" title="Docs" target="_blank">Docs</a></li>
+        <li><a href="#" title="GitHub" target="_blank">GitHub</a></li>
+        <li><a href="download.html" title="Download">Download</a></li>
+    </ul>
+</nav>
+<main>
+    <header>
+        <h1>Sharkur</h1>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Voluptatum, ipsam.
+        </p>
+        <button>Downloads</button>
+        <button>Documentation</button>
+    </header>
+    <article>
+        <h2>Features</h2>
+        <section>
+            <img src="" alt="" />
+            <div>
+                <h3>Lorem, ipsum.</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Explicabo, obcaecati.
+                </p>
+            </div>
+        </section>
+        <section>
+            <img src="" alt="" />
+            <div>
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quod et dolor dolorem tempore quam voluptatem autem vel sed
+                    consequuntur fuga!
+                </p>
+                <button>GitHub</button>
+            </div>
+        </section>
+    </article>
+    <article>
+        <h2>Support us</h2>
+        <h3>support our work and help us grow</h3>
+        <button>ko-fi.com/garlicteam</button>
+    </article>
+    <footer>
+        <h4>Sharkur</h4>
+        <ul>
+            <li><a href="#" title="Docs" target="_blank">Docs</a></li>
+            <li><a href="#" title="GitHub" target="_blank">GitHub</a></li>
+            <li><a href="download.html" title="Download">Download</a></li>
+        </ul>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis,
+            deserunt?
+        </p>
+    </footer>
+</main>
+{% endblock %}
