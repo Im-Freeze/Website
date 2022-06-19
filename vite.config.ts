@@ -41,6 +41,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: "./index.html",
+                downloads: "./downloads.html",
                 //example1: "./example1.html",
                 //example2: "./example2/index.html",
                 // ...
