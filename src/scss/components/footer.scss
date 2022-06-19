@@ -1,7 +1,7 @@
 @use "../util" as *;
 footer {
     padding: rem(30) 0;
-    background-color: #292b2d;
+    background-color: var(--light-background);
     display: flex;
     flex-direction: column;
     justify-content: center;

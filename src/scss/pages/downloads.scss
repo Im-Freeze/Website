@@ -1,0 +1,44 @@
+@use "../util" as *;
+.downloads-container {
+    display: flex;
+    justify-content: center;
+    margin-top: rem(50);
+    margin-bottom: rem(50);
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        thead {
+            background-color: var(--light-background);
+        }
+        tbody {
+            td:nth-child(2) {
+                color: var(--blue) !important;
+            }
+            tr:nth-child(1n) {
+                background-color: var(--background);
+            }
+            tr:nth-child(2n) {
+                background-color: var(--light-background);
+            }
+        }
+    }
+    table td,
+    table th {
+        padding: rem(20) rem(50);
+    }
+    a {
+        background-color: var(--blue);
+        padding: rem(10) rem(45);
+        font-family: var(--font-body);
+        border-radius: rem(12);
+        font-size: rem(15);
+        font-weight: 800;
+        transition: 0.2s;
+        margin: rem(10);
+        color: white;
+        &:hover {
+            background-color: var(--blue-darker);
+            cursor: pointer;
+        }
+    }
+}

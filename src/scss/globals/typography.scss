@@ -77,6 +77,15 @@ h5 {
     }
 }
 
+th {
+    font-family: var(--font-body);
+    color: var(--white);
+}
+td {
+    font-family: var(--font-body);
+    color: var(--white);
+}
+
 a,
 a:visited,
 a:active {
