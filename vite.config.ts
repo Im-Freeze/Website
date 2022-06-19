@@ -1,12 +1,10 @@
 import { defineConfig } from "vite";
 import { createHtmlPlugin } from "vite-plugin-html";
-import compress from "vite-plugin-compress";
 import twig from "vite-plugin-twig";
 
 export default defineConfig({
     plugins: [
         twig(),
-        compress(),
         createHtmlPlugin({
             minify: true,
         }),
