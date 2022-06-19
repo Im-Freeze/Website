@@ -1,0 +1,29 @@
+@use "../util" as *;
+.features {
+    header {
+        margin: rem(120);
+    }
+    .feature-container {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(150);
+        p {
+            width: rem(600);
+        }
+        section {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+            img {
+                width: rem(300);
+                margin-right: rem(50);
+            }
+            p,
+            h4,
+            button {
+                margin-left: 0;
+            }
+        }
+    }
+}

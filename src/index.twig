@@ -4,7 +4,7 @@
 {% set description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, nulla.' %}
 {% block content %}
 <main>
-    <header>
+    <header class="hero">
         <article>
             <h1>Sharkur</h1>
             <p>{{ description }}</p>
@@ -12,31 +12,35 @@
             <button class="second">Documentation</button>
         </article>
     </header>
-    <article class="container">
-        <h2>Features</h2>
-        <h3>Why use this fork?lol</h3>
-        <section>
-            <img src="/src/images/document.svg" alt="document icon" />
-            <div>
-                <h3>Lorem, ipsum.</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Explicabo, obcaecati.
-                </p>
-                <button>Documentation</button>
-            </div>
-        </section>
-        <section>
-            <img src="/src/images/open-source.svg" alt="open source" />
-            <div>
-                <h3>Lorem, ipsum dolor.</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quod et dolor dolorem tempore quam voluptatem autem vel sed
-                    consequuntur fuga!
-                </p>
-                <button>GitHub</button>
-            </div>
+    <article class="features container">
+        <header>
+            <h2>Features</h2>
+            <h3>Why use this fork?lol</h3>
+        </header>
+        <section class="feature-container">
+            <section>
+                <img src="/src/images/document.svg" alt="document icon" />
+                <div>
+                    <h4>Lorem, ipsum.</h4>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Explicabo, obcaecati.
+                    </p>
+                    <button class="main">Documentation</button>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h4>Lorem, ipsum dolor.</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quod et dolor dolorem tempore quam voluptatem autem vel sed
+                        consequuntur fuga!
+                    </p>
+                    <button class="main">GitHub</button>
+                </div>
+                <img src="/src/images/open-source.svg" alt="open source" />
+            </section>
         </section>
     </article>
     <article>
