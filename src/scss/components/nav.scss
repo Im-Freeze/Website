@@ -1,30 +1,41 @@
 @use "../util" as *;
 nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    a {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--background);
+    article {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         img {
             width: rem(65);
         }
-    }
 
-    ul {
-        display: flex;
-        justify-content: space-between;
-        width: rem(300);
-
-        li {
-            list-style: none;
-            justify-self: left;
-        }
-    }
-    @include breakpoint-down(medium) {
-        padding: 0;
         ul {
-            padding: 0;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            width: rem(300);
+
+            li {
+                list-style: none;
+                justify-self: left;
+                a {
+                    color: var(--gray);
+                    &:hover {
+                        color: var(--white);
+                    }
+                }
+            }
+        }
+        @include breakpoint-down(medium) {
+            padding: 0;
+            ul {
+                padding: 0;
+                display: flex;
+                justify-content: space-around;
+            }
         }
     }
 }
