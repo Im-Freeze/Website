@@ -1,23 +1,35 @@
 @use "../util" as *;
 .features {
     header {
-        margin: rem(120);
+        margin: rem(120) 0;
     }
     .feature-container {
         display: flex;
         flex-direction: column;
-        row-gap: rem(150);
+        row-gap: rem(110);
+        @include breakpoint(large) {
+            row-gap: rem(150);
+        }
         p {
-            width: rem(600);
+            max-width: rem(600);
         }
         section {
             display: flex;
-            width: 100%;
+            flex-direction: column;
+            text-align: center;
+            @include breakpoint(large) {
+                flex-direction: row;
+                text-align: left;
+            }
             justify-content: space-around;
             align-items: center;
             img {
-                width: rem(300);
+                max-width: rem(300);
                 margin-right: rem(50);
+                display: none;
+                @include breakpoint(large) {
+                    display: block;
+                }
             }
             p,
             h4,
