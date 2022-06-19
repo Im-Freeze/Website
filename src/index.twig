@@ -1,18 +1,18 @@
 {% extends 'partials/layout.twig' %}
 {% set title = 'Sharkur - Home' %}
 {% set url = 'soon.soon.soon' %}
-{% set description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, nulla.' %}
+{% set description = 'SharkurMC is a Minecraft software organization that focuses on improving performance and greater configurability.' %}
 {% block content %}
 <main>
     <header class="hero">
         <article>
             <h1>Sharkur</h1>
             <p>{{ description }}</p>
-            <button class="main">Downloads</button>
-            <button class="second">Documentation</button>
+            <button class="main" onclick="window.location.href='/downloads.html'" >Downloads</button>
+            <button class="second" onclick="window.open('https://sharkurmc.github.io/docs/','_blank')">Documentation</button>
         </article>
     </header>
-    <article class="features container">
+    <article id="features" class="features container">
         <header>
             <h2>Features</h2>
             <h3>Why use this fork?lol</h3>
@@ -26,7 +26,7 @@
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                         Explicabo, obcaecati.
                     </p>
-                    <button class="main">Documentation</button>
+                    <button class="main" onclick="window.open('https://sharkurmc.github.io/docs/')" >Documentation</button>
                 </div>
             </section>
             <section>
@@ -37,7 +37,7 @@
                         Quod et dolor dolorem tempore quam voluptatem autem vel sed
                         consequuntur fuga!
                     </p>
-                    <button class="main">GitHub</button>
+                    <button class="main" onclick="window.open('https://github.com/SharkurMC','_blank')" >GitHub</button>
                 </div>
                 <img src="/src/images/open-source.svg" alt="open source" />
             </section>
