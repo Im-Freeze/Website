@@ -1,1 +1,33 @@
 @use "../util" as *;
+button {
+    padding: rem(10) rem(45);
+    font-family: var(--font-body);
+    border-radius: rem(12);
+    font-size: rem(20);
+    font-weight: 800;
+    transition: 0.2s;
+    margin: rem(10);
+    &:hover {
+        cursor: pointer;
+    }
+}
+button.main {
+    background-color: var(--blue);
+    color: var(--white);
+    border-style: none;
+    border-width: 0;
+    &:hover {
+        background-color: var(--blue-darker);
+    }
+}
+button.second {
+    background-color: transparent;
+    border-color: var(--blue);
+    color: var(--blue);
+    border-style: solid;
+    border-width: rem(1);
+    &:hover {
+        border-color: var(--blue-darker);
+        color: var(--blue-darker);
+    }
+}

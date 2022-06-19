@@ -1,0 +1,24 @@
+@use "../util" as *;
+header {
+    padding: rem(40) 0;
+    background-image: url("/src/images/background.webp");
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: left;
+    article {
+        text-align: center;
+        max-width: rem(500);
+        button {
+            margin-top: rem(25);
+        }
+    }
+    @include breakpoint(medium) {
+        padding: rem(150);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
