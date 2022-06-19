@@ -25,8 +25,30 @@
         />
     </head> 
     <body>
-        {% block content %}
-        {% endblock %}
+    {# Navbar #}
+        <nav>
+            <ul>
+                <li>
+                    <a href="#"><img src="/src/images/logo.svg" alt="sharkur logo" />Sharkur</a>
+                </li>
+                <li><a href="#" title="Docs" target="_blank">Docs</a></li>
+                <li><a href="#" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="download.html" title="Download">Download</a></li>
+            </ul>
+        </nav>
+    {% block content %}{% endblock %}
+    <footer>
+        <h5>Sharkur</h5>
+        <ul>
+            <li><a href="#" title="Docs" target="_blank">Docs</a></li>
+            <li><a href="#" title="GitHub" target="_blank">GitHub</a></li>
+            <li><a href="download.html" title="Download">Download</a></li>
+        </ul>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis,
+            deserunt?
+        </p>
+    </footer>
     </body>
-
+    
 </html>
