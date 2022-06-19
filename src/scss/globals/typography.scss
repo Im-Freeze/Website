@@ -2,13 +2,23 @@
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     margin-top: 0;
     line-height: 1.1;
+    font-family: var(--font-body);
+    color: var(--white);
+}
+
+p {
+    font-family: var(--font-body);
+    color: var(--gray);
 }
 
 a,
 a:visited,
 a:active {
     text-decoration: none;
+    font-family: var(--font-body);
+    color: var(--white);
 }
