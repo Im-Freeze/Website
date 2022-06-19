@@ -21,6 +21,7 @@ export default defineConfig({
         },
     },
     publicDir: "assets",
+    base: "./",
     server: {
         fs: {
             allow: [".."],

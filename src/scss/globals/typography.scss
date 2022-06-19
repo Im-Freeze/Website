@@ -1,5 +1,16 @@
 @use "../util" as *;
 
+::-moz-selection {
+    /* Code for Firefox */
+    color: var(--background);
+    background: var(--blue);
+}
+
+::selection {
+    color: var(--background);
+    background: var(--blue);
+}
+
 h1,
 h2,
 h3,
