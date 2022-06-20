@@ -10,6 +10,11 @@ button {
     &:hover {
         cursor: pointer;
     }
+    @include breakpoint-down(medium) {
+        font-size: rem(18);
+        padding: rem(8) rem(40);
+        margin: rem(1);
+    }
 }
 button.main {
     background-color: var(--blue);

@@ -1,7 +1,7 @@
 @use "../util" as *;
 .hero {
-    padding-top: rem(60);
-    padding-bottom: rem(40);
+    padding-top: rem(90);
+    padding-bottom: rem(45);
     background-image: url("/src/images/background.webp");
     background-color: var(--black);
     background-size: cover;

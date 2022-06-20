@@ -2,6 +2,9 @@
 .features {
     header {
         margin: rem(120) 0;
+        @include breakpoint-down(medium) {
+            margin: rem(70) 0;
+        }
     }
     .feature-container {
         display: flex;
