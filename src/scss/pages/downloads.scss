@@ -1,7 +1,28 @@
 @use "../util" as *;
+.downloads-versions {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-size: rem(25);
+    justify-content: space-between;
+    padding: rem(20);
+    a {
+        font-weight: 200;
+    }
+    li {
+        justify-self: auto;
+        color: var(--white);
+        font-family: var(--font-body);
+        font-weight: 800;
+    }
+    div {
+        display: flex;
+        justify-content: space-around;
+        min-width: rem(205);
+    }
+}
 .downloads-container {
     display: flex;
-    margin-top: rem(50);
     margin-bottom: rem(50);
     table {
         border-collapse: collapse;
@@ -40,25 +61,25 @@
             cursor: pointer;
         }
     }
-}
 
-@include breakpoint-down(medium) {
-    table {
-        th {
-            display: none;
-        }
-        thead {
-            display: none;
-        }
-        td {
-            display: flex;
-        }
+    @include breakpoint-down(medium) {
+        table {
+            th {
+                display: none;
+            }
+            thead {
+                display: none;
+            }
+            td {
+                display: flex;
+            }
 
-        td::before {
-            content: attr(label);
-            font-weight: bold;
-            width: 120px;
-            min-width: 120px;
+            td::before {
+                content: attr(label);
+                font-weight: bold;
+                width: 120px;
+                min-width: 120px;
+            }
         }
     }
 }
