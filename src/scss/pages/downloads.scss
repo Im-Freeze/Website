@@ -1,7 +1,6 @@
 @use "../util" as *;
 .downloads-container {
     display: flex;
-    justify-content: center;
     margin-top: rem(50);
     margin-bottom: rem(50);
     table {
@@ -22,8 +21,8 @@
             }
         }
     }
-    table td,
-    table th {
+    td,
+    th {
         padding: rem(20) rem(50);
     }
     a {
@@ -35,10 +34,31 @@
         font-weight: 800;
         transition: 0.2s;
         margin: rem(10);
-        color: white;
+        color: var(--white);
         &:hover {
             background-color: var(--blue-darker);
             cursor: pointer;
+        }
+    }
+}
+
+@include breakpoint-down(medium) {
+    table {
+        th {
+            display: none;
+        }
+        thead {
+            display: none;
+        }
+        td {
+            display: flex;
+        }
+
+        td::before {
+            content: attr(label);
+            font-weight: bold;
+            width: 120px;
+            min-width: 120px;
         }
     }
 }

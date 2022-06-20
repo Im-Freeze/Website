@@ -92,4 +92,7 @@ a:active {
     text-decoration: none;
     font-family: var(--font-body);
     color: var(--gray);
+    &:hover {
+        color: var(--white);
+    }
 }
