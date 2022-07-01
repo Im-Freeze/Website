@@ -3,59 +3,22 @@
 {% set url = 'https://sharkurmc.rgarlic.eu/downloads' %}
 {% set description = 'SharkurMC is a Minecraft software organization that focuses on improving performance and greater configurability.' %}
 {% block content %}
-<main>
-    <header class="hero">
-        <article>
-            <h1>Downloads</h1>
-            <button class="second" onclick="window.open('https://sharkurmc.github.io/docs/','_blank')">Documentation</button>
-        </article>
-    </header>
-    <ul class="container downloads-versions">
-        <li><a href="">Sharkur 1.72</a></li>
-        <li><a href="">Sharkur 1.19</a></li>
-    </ul>
-    <article class="container downloads-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Download</th>
-                    <th>?ID?</th>
-                    <th>Description</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="">Download</a></td>
-                    <td>G4X1</td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Autem, molestiae?
-                    </td>
-                    <td>1.4.2022</td>
-                </tr>
-                <tr>
-                    <td><a href="">Download</a></td>
-                    <td>FGx51</td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Autem, molestiae?
-                    </td>
-                    <td>1.4.2022</td>
-                </tr>
-                <tr>
-                    <td><a href="">Download</a></td>
-                    <td>XIe32</td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Autem, molestiae?
-                    </td>
-                    <td>1.4.2022</td>
-                </tr>
-            </tbody>
-        </table>
-    </article>
-</main>
+	<main>
+
+		<header class="hero">
+			<article>
+				<h1>Downloads</h1>
+				<button class="second" onclick="window.open('https://sharkurmc.github.io/docs/','_blank')">Documentation</button>
+			</article>
+		</header>
+		<div class="container downloads-container">
+			<div id="content" class="row"></div>
+		</div>
+
+	</main>
 
 
+{% endblock %}
+{% block script %}
+	<script type="text/javascript" src="/src/js/script.js"></script>
 {% endblock %}

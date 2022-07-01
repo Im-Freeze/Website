@@ -1,28 +1,67 @@
 @use "../util" as *;
-.downloads-versions {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    font-size: rem(22);
-    justify-content: space-around;
-    padding-top: rem(17);
-    padding-bottom: rem(10);
-    a {
-        font-weight: 200;
-    }
-    li {
-        justify-self: auto;
-        color: var(--white);
-        font-family: var(--font-body);
-        font-weight: 800;
-        width: 100%;
-        text-align: center;
-        .activated {
+.download-content {
+    // background-color: wheat;
+}
+
+.col s12 {
+    background-color: blue;
+
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+
+.download-desc {
+    font-family: var(--font-body);
+    color: var(--gray);
+}
+
+.row,
+.col {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 0.75rem;
+    min-height: 1px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+
+//hidden class
+.hidden {
+    display: none;
+}
+.row {
+    .builds-table {
+        td,
+        th {
+            padding: rem(20) rem(50);
+        }
+        .download-jarvec {
+            background-color: var(--blue);
+            padding: rem(10) rem(45);
+            font-family: var(--font-body);
+            border-radius: rem(12);
+            font-size: rem(15);
             font-weight: 800;
+            transition: 0.2s;
+            margin: rem(10);
+            color: var(--white);
+            &:hover {
+                background-color: var(--blue-darker);
+                cursor: pointer;
+            }
         }
     }
 }
-.downloads-container {
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.col {
     display: flex;
     margin-bottom: rem(50);
     table {
@@ -47,7 +86,7 @@
     th {
         padding: rem(20) rem(50);
     }
-    a {
+    .download-jarvec {
         background-color: var(--blue);
         padding: rem(10) rem(45);
         font-family: var(--font-body);
@@ -81,6 +120,30 @@
                 width: 120px;
                 min-width: 120px;
             }
+        }
+    }
+}
+.tabs {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-size: rem(22);
+    justify-content: space-around;
+    padding-top: rem(17);
+    padding-bottom: rem(10);
+    width: 100%;
+    a {
+        font-weight: 200;
+    }
+    li {
+        justify-self: auto;
+        color: var(--white);
+        font-family: var(--font-body);
+        font-weight: 800;
+        width: 100%;
+        text-align: center;
+        .activated {
+            font-weight: 800;
         }
     }
 }

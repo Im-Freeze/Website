@@ -3,76 +3,72 @@
 {% set url = 'https://sharkurmc.rgarlic.eu/' %}
 {% set description = 'SharkurMC is a Minecraft software organization that focuses on improving performance and greater configurability.' %}
 {% block content %}
-<main>
-    <header class="hero">
-        <article>
-            <h1>Sharkur</h1>
-            <p>{{ description }}</p>
-            <button class="main" onclick="window.location.href='/downloads.html'" >Downloads</button>
-            <button class="second" onclick="window.open('https://sharkurmc.github.io/docs/','_blank')">Documentation</button>
-        </article>
-    </header>
-    <article id="features" class="features container">
-        <header>
-            <h2>Features</h2>
-            <h3>Why use this fork?lol</h3>
-        </header>
-        <section class="feature-container">
-            <section>
-                <img src="/src/images/document.svg" alt="document icon" />
-                <div>
-                    <h4>Lorem, ipsum.</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Explicabo, obcaecati.
-                    </p>
-                    <button class="main" onclick="window.open('https://sharkurmc.github.io/docs/')" >Documentation</button>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <h4>Lorem, ipsum dolor.</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quod et dolor dolorem tempore quam voluptatem autem vel sed
-                        consequuntur fuga!
-                    </p>
-                    <button class="main" onclick="window.open('https://github.com/SharkurMC','_blank')" >GitHub</button>
-                </div>
-                <img src="/src/images/open-source.svg" alt="open source" />
-            </section>
-        </section>
-<div
-    style="
-        border-radius: 50%;
-        position: absolute;
-        width: 565px;
-        height: 565px;
-        left: calc(50% - 1165px/2 - 816px);
-        top: -190px;
-
-        background: rgba(29, 176, 243, 0.6);
-        filter: blur(407px);
-    "
-></div>
-<div
-    style="
-        border-radius: 50%;
-        position: absolute;
-        width: 565px;
-        height: 565px;
-        left: calc(50% - 465px/2 + 992.5px);
-        top: 951px;
-
-        background: rgba(170, 217, 217, 0.6);
-        filter: blur(407px);
-    "
-></div>
-    </article>
-    <article class="support-container">
-        <h2>Support us</h2>
-        <h3>Support Our Work And Help Us Grow</h3>
-        <button>ko-fi.com/garlicteam</button>
-    </article>
-</main>
+	<main>
+		<header class="hero">
+			<article>
+				<h1>Sharkur</h1>
+				<p>{{ description }}</p>
+				<button class="main" onclick="window.location.href='/downloads.html'">Downloads</button>
+				<button class="second" onclick="window.open('https://sharkurmc.github.io/docs/','_blank')">Documentation</button>
+			</article>
+		</header>
+		<article id="features" class="features container">
+			<header>
+				<h2>Features</h2>
+				<h3>Lorem, ipsum dolor.</h3>
+			</header>
+			<section class="feature-container">
+				<section>
+					<img src="/src/images/document.svg" alt="document icon"/>
+					<div>
+						<h4>Lorem, ipsum.</h4>
+						<p>
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+							                        Explicabo, obcaecati.
+						</p>
+						<button class="main" onclick="window.open('https://sharkurmc.github.io/docs/')">Documentation</button>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h4>Lorem, ipsum dolor.</h4>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit.
+							                        Quod et dolor dolorem tempore quam voluptatem autem vel sed
+							                        consequuntur fuga!
+						</p>
+						<button class="main" onclick="window.open('https://github.com/SharkurMC','_blank')">GitHub</button>
+					</div>
+					<img src="/src/images/open-source.svg" alt="open source"/>
+				</section>
+			</section>
+			<div style="
+				        border-radius: 50%;
+				        position: absolute;
+				        width: 565px;
+				        height: 565px;
+				        left: calc(50% - 1165px/2 - 816px);
+				        top: -190px;
+				
+				        background: rgba(29, 176, 243, 0.6);
+				        filter: blur(407px);
+				    "></div>
+			<div style="
+				        border-radius: 50%;
+				        position: absolute;
+				        width: 565px;
+				        height: 565px;
+				        left: calc(50% - 465px/2 + 992.5px);
+				        top: 951px;
+				
+				        background: rgba(170, 217, 217, 0.6);
+				        filter: blur(407px);
+				    "></div>
+		</article>
+		<article class="support-container">
+			<h2>Support us</h2>
+			<h3>Support Our Work And Help Us Grow</h3>
+			<button>ko-fi.com/garlicteam</button>
+		</article>
+	</main>
 {% endblock %}
