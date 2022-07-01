@@ -1,40 +1,6 @@
+// https://github.com/PaperMC/papermc.io/blob/master/src/js/downloads.js
+
 const downloads = {
-    "Paper-1.19": {
-        title: "1.19",
-        api_endpoint: "paper",
-        api_version: "1.19",
-        github: "PaperMC/Paper",
-        desc: "Active development for Minecraft 1.19",
-        limit: 10,
-        cache: null,
-    },
-    "Paper-1.18": {
-        title: "1.18.2",
-        api_endpoint: "paper",
-        api_version: "1.18",
-        github: "PaperMC/Paper",
-        desc: "Active development for Minecraft 1.18.2",
-        limit: 10,
-        cache: null,
-    },
-    Velocity: {
-        title: "Velocity",
-        api_endpoint: "velocity",
-        api_version: "3.0.0",
-        github: "PaperMC/Velocity",
-        desc: "The modern, next-generation Minecraft server proxy.",
-        limit: 10,
-        cache: null,
-    },
-    Waterfall: {
-        title: "Waterfall",
-        api_endpoint: "waterfall",
-        api_version: "1.19",
-        github: "PaperMC/Waterfall",
-        desc: "Our fork of the BungeeCord software, with improved Forge support and more features.",
-        limit: 10,
-        cache: null,
-    },
     "Sharkur-1.19": {
         title: "Sharkur",
         api_endpoint: "sharkur",
@@ -49,7 +15,7 @@ const downloads = {
 function apiFetch(project, version) {
     return window
         .fetch(
-            `https://api.papermc.io/v2/projects/${project}/version_group/${version}/builds`
+            `https://crodylus.cezarsalat.tk/api/v2/projects/${project}/version_group/${version}/builds`
         )
         .then((response) => {
             if (response.status >= 400) return null;
@@ -183,7 +149,7 @@ function load(id) {
 
             const row = `<tr>
                         <td>
-                            <a href="https://api.papermc.io/v2/projects/${
+                            <a href="https://crodylus.cezarsalat.tk/api/v2/projects/${
                                 downloads[id].api_endpoint
                             }/versions/${build.version}/builds/${
                 build.build
