@@ -103,7 +103,7 @@ function load(id) {
         .slice(0, downloads[id].limit)
         .forEach((build) => {
             let changes = "";
-            build.changes.forEach((item) => {
+            build.changes?.forEach((item) => {
                 changes += `<span class="commit-hash">
                             [<a title="${escapeHTML(
                                 item.summary
