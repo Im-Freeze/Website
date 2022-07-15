@@ -1,11 +1,11 @@
 @use "../util" as *;
 .download-content {
-    // background-color: wheat;
+    //background-color: wheat;
+    margin: 0;
+    padding: 0;
 }
 
 .col s12 {
-    background-color: blue;
-
     margin-left: auto;
     left: auto;
     right: auto;
@@ -14,6 +14,9 @@
 .download-desc {
     font-family: var(--font-body);
     color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
 
 .row,
@@ -35,30 +38,11 @@
 }
 .row {
     .builds-table {
-        td,
-        th {
-            padding: rem(20) rem(50);
-        }
-        .download-jarvec {
-            background-color: var(--blue);
-            padding: rem(10) rem(45);
-            font-family: var(--font-body);
-            border-radius: rem(12);
-            font-size: rem(15);
-            font-weight: 800;
-            transition: 0.2s;
-            margin: rem(10);
-            color: var(--white);
-            &:hover {
-                background-color: var(--blue-darker);
-                cursor: pointer;
-            }
+        td {
+            padding: rem(20) rem(30);
+            width: rem(500);
         }
     }
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
 }
 
 .col {
@@ -67,6 +51,9 @@ table {
     table {
         border-collapse: collapse;
         border-spacing: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         thead {
             background-color: var(--light-background);
         }
@@ -82,13 +69,14 @@ table {
             }
         }
     }
-    td,
-    th {
-        padding: rem(20) rem(50);
-    }
+
     .download-jarvec {
+        text-align: center;
+        display: block;
         background-color: var(--blue);
-        padding: rem(10) rem(45);
+        padding: rem(10) rem(45) !important;
+        min-width: rem(100) !important;
+        max-width: rem(200) !important;
         font-family: var(--font-body);
         border-radius: rem(12);
         font-size: rem(15);
@@ -112,13 +100,7 @@ table {
             }
             td {
                 display: flex;
-            }
-
-            td::before {
-                content: attr(label);
-                font-weight: bold;
-                width: 120px;
-                min-width: 120px;
+                flex-direction: column;
             }
         }
     }
@@ -146,4 +128,7 @@ table {
             font-weight: 800;
         }
     }
+}
+.commit-hash {
+    display: inline-block;
 }
