@@ -60,7 +60,7 @@
         }
         tbody {
             td:nth-child(2) {
-                color: var(--blue) !important;
+                color: var(--pink) !important;
             }
             tr:nth-child(1n) {
                 background-color: var(--background);
@@ -74,7 +74,7 @@
     .download-jarvec {
         text-align: center;
         display: block;
-        background-color: var(--blue);
+        background-color: var(--pink);
         padding: rem(10) rem(45) !important;
         min-width: rem(100) !important;
         max-width: rem(200) !important;
@@ -86,7 +86,7 @@
         margin: rem(10);
         color: var(--white);
         &:hover {
-            background-color: var(--blue-darker);
+            background-color: var(--pink-darker);
             cursor: pointer;
         }
     }

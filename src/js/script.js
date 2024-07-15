@@ -144,7 +144,7 @@ function load(id) {
                     ? "light-green"
                     : experimental
                     ? "red"
-                    : "light-blue";
+                    : "light-pink";
             const download_icon = experimental ? "error" : "";
 
             const row = `<tr>
@@ -231,7 +231,7 @@ function load(id) {
             `;
 
     if (json.builds.length > downloads[id].limit) {
-        container.innerHTML += `<a class="wide-btn btn light-blue darken-2 waves-effect waves-light white-text" onclick="loadMore('${id}')">More</a><br>`;
+        container.innerHTML += `<a class="wide-btn btn light-pink darken-2 waves-effect waves-light white-text" onclick="loadMore('${id}')">More</a><br>`;
     }
 
     if (downloads[id].api_endpoint === "paper") {
