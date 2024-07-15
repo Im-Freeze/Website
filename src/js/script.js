@@ -1,12 +1,12 @@
 // https://github.com/PaperMC/papermc.io/blob/master/src/js/downloads.js
 
 const downloads = {
-    "Sharkur-1.19": {
-        title: "Sharkur",
-        api_endpoint: "sharkur",
-        api_version: "1.19",
-        github: "SharkurMC/Sharkur",
-        desc: "Active development for Minecraft 1.19.",
+    "IceCreamMC-1.21": {
+        title: "IceCream",
+        api_endpoint: "icecream",
+        api_version: "1.21",
+        github: "IceCreamMC/IceCream",
+        desc: "Active development for Minecraft 1.21.",
         limit: 10,
         cache: null,
     },
