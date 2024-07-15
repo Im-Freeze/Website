@@ -17,22 +17,22 @@ button {
     }
 }
 button.main {
-    background-color: var(--blue);
+    background-color: var(--pink);
     color: var(--white);
     border-style: none;
     border-width: 0;
     &:hover {
-        background-color: var(--blue-darker);
+        background-color: var(--pink-darker);
     }
 }
 button.second {
     background-color: transparent;
-    border-color: var(--blue);
-    color: var(--blue);
+    border-color: var(--pink);
+    color: var(--pink);
     border-style: solid;
     border-width: rem(1);
     &:hover {
-        border-color: var(--blue-darker);
-        color: var(--blue-darker);
+        border-color: var(--pink-darker);
+        color: var(--pink-darker);
     }
 }
