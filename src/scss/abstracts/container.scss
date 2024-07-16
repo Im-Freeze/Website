@@ -10,16 +10,4 @@
         transform: translate(0, 0);
     }
 }
-
-@mixin hide-scrollbar {
-    scrollbar-width: none; /* Firefox */
-    
-    &::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
-    }
-  }
-  
-  .no-scrollbar {
-    @include hide-scrollbar;
-  }
   

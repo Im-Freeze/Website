@@ -4,17 +4,3 @@
 @function rem($pixels, $context: 16) {
     @return (math.div($pixels, $context)) * 1rem;
 }
-
-@mixin hide-scrollbar {
-    scrollbar-width: none; /* Firefox */
-
-    
-    &::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
-    }
-  }
-  
-  .no-scrollbar {
-    @include hide-scrollbar;
-  }
-  
