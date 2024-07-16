@@ -41,3 +41,17 @@ $breakpoints-down: (
     justify-content: $just;
     align-items: $align;
   }
+
+  @mixin hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+
+    
+    &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+  }
+  
+  .no-scrollbar {
+    @include hide-scrollbar;
+  }
+  
