@@ -1,25 +1,17 @@
-// https://github.com/PaperMC/papermc.io/blob/master/src/js/downloads.js
-
 const downloads = {
-    "IceCreamMC-1.21": {
-        title: "IceCream",
-        api_endpoint: "icecream",
-        api_version: "1.21",
+    "IceCreamMC": {
+        title: "IceCreamMC",
         github: "IceCreamMC/IceCream",
-        desc: "Active development for Minecraft 1.21.",
-        limit: 10,
-        cache: null,
+        desc: "Releases for IceCreamMC",
+        github_releases: null,
     },
 };
 
-function apiFetch(project, version) {
+function githubFetch(repo) {
     return window
-        .fetch(
-            `https://crodylus.cezarsalat.tk/api/v2/projects/${project}/version_group/${version}/builds`
-        )
+        .fetch(`https://api.github.com/repos/${repo}/releases`)
         .then((response) => {
             if (response.status >= 400) return null;
-
             return response.json();
         });
 }
@@ -34,10 +26,8 @@ function escapeHTML(str) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Show downloads
     let tabs = "",
-        tabContents = "",
-        jobs = Object.keys(downloads).length;
+        tabContents = "";
     for (const id in downloads) {
         const title = downloads[id].title;
         tabs += `<li class="tab"><a href="#${id}">${title}</a></li>`;
@@ -61,15 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
       ${tabContents}`;
 
     for (const id in downloads) {
-        apiFetch(downloads[id].api_endpoint, downloads[id].api_version)
-            .then((json) => {
-                downloads[id].cache = json;
-                load(id);
+        // Fetch GitHub releases
+        githubFetch(downloads[id].github)
+            .then((releases) => {
+                downloads[id].github_releases = releases;
+                loadGithubReleases(id);
             })
             .catch((e) => {
                 console.error(e);
-                document.getElementById(id).innerText =
-                    "Failed to load downloads.";
+                document.getElementById(id).innerText +=
+                    "Failed to load GitHub releases.";
             });
     }
 
@@ -80,172 +71,98 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function load(id) {
-    const githubID = downloads[id].github;
+function loadGithubReleases(id) {
+    const releases = downloads[id].github_releases;
     const container = document
         .getElementById(id)
         .querySelector(".download-content");
-    const json = downloads[id].cache;
-    if (json == null) {
-        container.innerText = "Failed to load downloads.";
+
+    if (releases == null || releases.length === 0) {
+        container.innerHTML += `<div>No GitHub releases found.</div>`;
         return;
     }
 
-    let promotedRows = "";
-    let rows = "";
-    const builds = json.builds.filter(
-        (build) => build.downloads && build.downloads.application
-    );
-    let oldVersion;
-    let atLeastOneExperimental = false;
-    builds
-        .sort((a, b) => b.build - a.build)
-        .slice(0, downloads[id].limit)
-        .forEach((build) => {
-            let changes = "";
-            build.changes?.forEach((item) => {
-                changes += `<span class="commit-hash">
-                            [<a title="${escapeHTML(
-                                item.summary
-                            )}" href="https://github.com/${githubID}/commit/${
-                    item.commit
-                }" target="_blank">${escapeHTML(
-                    item.commit.substring(0, 7)
-                )}</a>]
-                        </span>
-                        ${escapeHTML(item.summary).replace(
-                            /([^&])#([0-9]+)/gm,
-                            `$1<a target="_blank" href="https://github.com/${githubID}/issues/$2">#$2</a>`
-                        )}
-                        <br>`;
-            });
+    let releaseRows = releases
+        .map((release) => {
+            const releaseDate = new Date(release.published_at).toISOString().split("T")[0];
+            const assets = release.assets
+                .filter((asset) => asset.name.endsWith(".jar"))
+                .map((asset) => {
+                    return `<a href="${asset.browser_download_url}" class="btn download-jarvec" download="${asset.name}" title="Download ${asset.name}">Download ${escapeHTML(release.tag_name)}</a>`;
+                })
+                .join("<br>");
 
-            if (!changes) {
-                changes = "No changes";
-            }
-
-            if (!oldVersion) {
-                oldVersion = build.version;
-            }
-
-            if (oldVersion !== build.version) {
-                oldVersion = build.version;
-                rows += `<tr>
-                        <td colspan="3">${capitalizeFirstLetter(
-                            downloads[id].api_endpoint
-                        )} ${build.version}</td>
-                     </tr>`;
-            }
-
-            const experimental = build.channel === "experimental";
-            atLeastOneExperimental = atLeastOneExperimental || experimental;
-            const download_color =
-                build.promoted === true
-                    ? "light-green"
-                    : experimental
-                    ? "red"
-                    : "light-pink";
-            const download_icon = experimental ? "error" : "";
-
-            const row = `<tr>
-                        <td>
-                            <a href="https://crodylus.cezarsalat.tk/api/v2/projects/${
-                                downloads[id].api_endpoint
-                            }/versions/${build.version}/builds/${
-                build.build
-            }/downloads/${build.downloads.application.name}"
-                                class="download-jarvec" title="Version: ${
-                                    build.version
-                                }\nChannel: ${capitalizeFirstLetter(
-                build.channel
-            )}">
-                                #${
-                                    build.build
-                                }<i class="material-icons left">${download_icon}</i>
-                            </a>
-                        </td>
-                        <td data-build-id="${build.build}">
-                            ${changes}
-                        </td>
-                        <td>
-                            ${new Date(build.time).toISOString().split("T")[0]}
-                        </td>
-                     </tr>`;
-
-            build.promoted === true ? (promotedRows += row) : (rows += row);
-        });
-
-    const noBuilds = `<tr class="no-builds-row">
-                            <td colspan="4">No builds.</td>
-                      </tr>`;
-
-    if (rows === "") {
-        rows = noBuilds;
-    }
-
-    container.innerHTML = `<div class="download-desc">${downloads[id].desc}</div>`;
-
-    const experimentalBox = `<div class="experimental-desc">
-                                    <i class="material-icons left">error</i>
-                                    <span>Builds marked in red are early, experimental builds. They are only recommended for usage on test servers and should be used with caution. <b>Backups are mandatory!</b></span>
-                                </div>`;
-    if (atLeastOneExperimental) {
-        container.innerHTML += experimentalBox;
-    }
-
-    if (promotedRows) {
-        container.innerHTML += `
-              <div class="builds-title">Promoted Builds</div>
-              <table class="builds-table striped" style="margin-bottom: 15px">
-                <thead>
-                  <tr>
-                    <th width="10%">Build</th>
-                    <th width="75%">Changes</th>
-                    <th width="10%">Date</th>
-                    <th width="5%" title="The SHA256 of the jar, used to verify the integrity">SHA256</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${promotedRows}
-                </tbody>
-              </table>
-              
-              <div class="builds-title" style="padding-bottom: 5px">Other Builds</div>
-              `;
-    }
+            return `<tr>
+                      <td>${escapeHTML(release.tag_name)}</td>
+                      <td>${releaseDate}</td>
+                      <td>${assets}</td>
+                    </tr>`;
+        })
+        .join("");
 
     container.innerHTML += `
-            <table class="builds-table striped">
-              <thead style="visibility: collapse">
-                <tr>
-                  <th width="10%"></th>
-                  <th width="75%"></th>
-                  <th width="10%"></th>
-                  <th width="5%"></th>
-                </tr>
-              </thead>
-              <tbody>
-                ${rows}
-              </tbody>
-            </table>
-            `;
-
-    if (json.builds.length > downloads[id].limit) {
-        container.innerHTML += `<a class="wide-btn btn light-pink darken-2 waves-effect waves-light white-text" onclick="loadMore('${id}')">More</a><br>`;
-    }
-
-    if (downloads[id].api_endpoint === "paper") {
-        container.innerHTML += `<a class="wide-btn btn grey darken-2 waves-effect waves-light" href="legacy">Legacy</a>`;
-    }
-
-    if (atLeastOneExperimental) {
-        container.innerHTML += experimentalBox;
-    }
+      <div class="builds-title">GitHub Releases</div>
+      <table class="builds-table striped">
+        <thead>
+          <tr>
+            <th width="30%">Release</th>
+            <th width="20%">Date</th>
+            <th width="50%">Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${releaseRows}
+        </tbody>
+      </table>
+      <div class="versions-btn">
+        <button class="btn" onclick="showVersionSelector('${id}')">Download Other Versions</button>
+      </div>
+    `;
 }
 
-function loadMore(id) {
-    downloads[id].limit += 10;
-    load(id);
+function showVersionSelector(id) {
+    const releases = downloads[id].github_releases;
+    const versionOptions = releases
+        .map(
+            (release) =>
+                `<option value="${release.tag_name}">${escapeHTML(
+                    release.tag_name
+                )}</option>`
+        )
+        .join("");
+
+    const container = document.getElementById(id).querySelector(".download-content");
+    container.innerHTML += `
+      <div class="version-selector">
+        <label for="version-select">Select Version:</label>
+        <select id="version-select" class="browser-default">
+          ${versionOptions}
+        </select>
+        <button class="btn" onclick="downloadSelectedVersion('${id}')">Download</button>
+      </div>
+    `;
+}
+
+function downloadSelectedVersion(id) {
+    const selectedVersion = document.getElementById("version-select").value;
+    const releases = downloads[id].github_releases;
+    const selectedRelease = releases.find(
+        (release) => release.tag_name === selectedVersion
+    );
+
+    if (selectedRelease && selectedRelease.assets.length > 0) {
+        const jarAsset = selectedRelease.assets.find((asset) =>
+            asset.name.endsWith(".jar")
+        );
+
+        if (jarAsset) {
+            window.location.href = jarAsset.browser_download_url;
+        } else {
+            alert("No JAR file found for the selected version.");
+        }
+    } else {
+        alert("Selected version not found or no assets available.");
+    }
 }
 
 function capitalizeFirstLetter(string) {
