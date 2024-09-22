@@ -3,22 +3,27 @@
 {% set url = 'https://icecreammc.xyz/downloads' %}
 {% set description = 'IceCream is a fork of Purpur adding new configurations!' %}
 {% block content %}
-	<main>
+<main>
 
-		<header class="hero">
-			<article>
-				<h1>Downloads</h1>
-				<button class="second" onclick="window.open('https://github.com/IceCreamMC/IceCream/releases/latest/download/IceCream-1.21.jar','_blank')">Download Latest Release</button>
-			</article>
-		</header>
-		<div class="container">
-			<div id="content" class="row"></div>
-		</div>
+<header class="hero">
+<article>
+<!-- New line added for Terms of Service and Privacy Policy with blue hyperlinks -->
+<p>By downloading IceCreamMC you agree to our 
+<a href="https://info.icecreammc.xyz/" style="color:#F60980;">Terms of Service</a> and our 
+<a href="https://info.icecreammc.xyz/" style="color:#F60980;">Privacy Policy</a>.
+</p>
 
-	</main>
+<h1>Downloads</h1>
+<button class="second" onclick="window.open('https://github.com/IceCreamMC/IceCream/releases/latest/download/IceCream-1.21.jar','_blank')">Download Latest Release</button>
+</article>
+</header>
+<div class="container">
+<div id="content" class="row"></div>
+</div>
 
+</main>
 
 {% endblock %}
 {% block script %}
-	<script type="module" src="/src/js/script.js"></script>
+<script type="module" src="/src/js/script.js"></script>
 {% endblock %}
