@@ -42,7 +42,7 @@ export default defineConfig({
             input: {
                 main: "./index.html",
                 downloads: "./downloads.html",
-                //example1: "./example1.html",
+                 downloads: "./installer.html",
                 //example2: "./example2/index.html",
                 // ...
                 // List all files you want in your build
